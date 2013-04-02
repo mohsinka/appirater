@@ -250,9 +250,9 @@ static BOOL _modalOpen = false;
 		if (_debug)
 			NSLog(@"APPIRATER Use count: %d", useCount);
 	}
-	else
+	else if ([version componentsSeparatedByString:@"."][0] > [trackingVersion componentsSeparatedByString:@"."][0])
 	{
-		// it's a new version of the app, so restart tracking
+		// it's a new major version of the app, so restart tracking
 		[userDefaults setObject:version forKey:kAppiraterCurrentVersion];
 		[userDefaults setDouble:[[NSDate date] timeIntervalSince1970] forKey:kAppiraterFirstUseDate];
 		[userDefaults setInteger:1 forKey:kAppiraterUseCount];
