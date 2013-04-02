@@ -272,6 +272,10 @@ static BOOL _modalOpen = false;
 	// get the version number that we've been tracking
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 	NSString *trackingVersion = [userDefaults stringForKey:kAppiraterCurrentVersion];
+
+    // check if version is a major update
+    BOOL isMajorUpdate = ([version componentsSeparatedByString:@"."][0] > [trackingVersion componentsSeparatedByString:@"."][0]);
+
 	if (trackingVersion == nil)
 	{
 		trackingVersion = version;
@@ -298,9 +302,9 @@ static BOOL _modalOpen = false;
 		if (_debug)
 			NSLog(@"APPIRATER Significant event count: %d", sigEventCount);
 	}
-	else
+	else if (isMajorUpdate)
 	{
-		// it's a new version of the app, so restart tracking
+		// it's a new major version of the app, so restart tracking
 		[userDefaults setObject:version forKey:kAppiraterCurrentVersion];
 		[userDefaults setDouble:0 forKey:kAppiraterFirstUseDate];
 		[userDefaults setInteger:0 forKey:kAppiraterUseCount];
