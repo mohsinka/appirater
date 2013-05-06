@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name              = 'Appirater'
-  s.version           = '1.0.3'
+  s.version           = '1.0.4'
   s.platform          = :ios
   s.summary           = "A utility that reminds your iPhone app's users to review the app."
   s.homepage          = 'http://arashpayan.com/blog/2009/09/07/presenting-appirater/'
   s.author            = { 'Arash Payan' => 'arash.payan@gmail.com' }
-  s.source            = { :git => 'https://github.com/soundcloud/appirater.git', :tag => '1.0.3' }
+  s.source            = { :git => 'https://github.com/soundcloud/appirater.git', :tag => '1.0.4' }
   s.source_files      = 'Classes'
   s.requires_arc      = true
   s.preserve_paths    = 'Resources'
